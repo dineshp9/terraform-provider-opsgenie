@@ -273,8 +273,6 @@ github.com/nsf/jsondiff v0.0.0-20200515183724-f29ed568f4ce h1:RPclfga2SEJmgMmz2k
 github.com/nsf/jsondiff v0.0.0-20200515183724-f29ed568f4ce/go.mod h1:uFMI8w+ref4v2r9jz+c9i1IfIttS/OkmLfrk1jne5hs=
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=
-github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.7-0.20201230123508-d0825cdedb9b h1:yxiXbZ+RIao4NJHdBgdw991bvLfzBxid8Qq/LzqXFHU=
-github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.7-0.20201230123508-d0825cdedb9b/go.mod h1:4OjcxgwdXzezqytxN534MooNmrxRD50geWZxTD7845s=
 github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.8 h1:qF/rRi8GSU2mjBXfJIyMj9GGmjedsV3Gm1uYbiGlCRk=
 github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.8/go.mod h1:4OjcxgwdXzezqytxN534MooNmrxRD50geWZxTD7845s=
 github.com/pierrec/lz4 v2.0.5+incompatible/go.mod h1:pdkljMzZIN41W+lC3N2tnIh5sFi+IEE17M5jbnwPHcY=
