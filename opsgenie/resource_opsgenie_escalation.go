@@ -170,26 +170,40 @@ func resourceOpsgenieEscalationUpdate(d *schema.ResourceData, meta interface{}) 
 	if err != nil {
 		return err
 	}
-	name := d.Get("name").(string)
-	description := d.Get("description").(string)
-	ownerTeam := d.Get("owner_team_id").(string)
 
 	updateRequest := &escalation.UpdateRequest{
 		IdentifierType: escalation.Id,
 		Identifier:     d.Id(),
-		Name:           name,
-		Description:    description,
-		Rules:          expandOpsgenieEscalationRules(d),
-		Repeat:         expandOpsgenieEscalationRepeat(d),
 	}
-	if ownerTeam != "" {
-		updateRequest.OwnerTeam = &og.OwnerTeam{
-			Id: ownerTeam,
+
+	if d.HasChange("name") {
+		updateRequest.Name = d.Get("name").(string)
+	}
+
+	if d.HasChange("description") {
+		updateRequest.Description = d.Get("description").(string)
+	}
+
+	if d.HasChange("owner_team_id") {
+		ownerTeam := d.Get("owner_team_id").(string)
+		if ownerTeam != "" {
+			updateRequest.OwnerTeam = &og.OwnerTeam{
+				Id: ownerTeam,
+			}
+		} else {
+			updateRequest.OwnerTeam = nil
 		}
-	} else {
-		updateRequest.OwnerTeam = nil
 	}
-	log.Printf("[INFO] Updating OpsGenie escalation '%s'", name)
+
+	if d.HasChange("rules") {
+		updateRequest.Rules = expandOpsgenieEscalationRules(d)
+	}
+
+	if d.HasChange("repeat") {
+		updateRequest.Repeat = expandOpsgenieEscalationRepeat(d)
+	}
+
+	log.Printf("[INFO] Updating OpsGenie escalation '%s'", d.Get("name").(string))
 
 	_, err = client.Update(context.Background(), updateRequest)
 	if err != nil {
